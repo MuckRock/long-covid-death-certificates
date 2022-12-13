@@ -1,13 +1,23 @@
 # History files
 .Rhistory
 .Rapp.history
+analysis/.Rhistory
+etl/.Rhistory
+analysis/.Rapp.history
+etl/.Rapp.history
 
 # Session Data files
 .RData
 .RDataTmp
+analysis/.RData
+etl/.RData
+analysis/.RDataTmp
+etl/.RDataTmp
 
 # User-specific files
 .Ruserdata
+analysis/.Ruserdata
+etl/.Ruserdata
 
 # Example code in package build process
 *-Ex.R
