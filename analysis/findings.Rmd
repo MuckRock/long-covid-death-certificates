@@ -1,0 +1,140 @@
+---
+title: "Analysis for findings by year and location"
+author: "Dillon Bergin"
+date: "12/13/2022"
+output: html_document
+---
+# What this notebook is
+
+This notebook contains the basic math and code that underlie the numbers in the article "After Nationwide Review, CDC is Defining Long COVID Deaths. We’ve Found Details About Those Who Died. Here are Some of Their Stories."
+
+```{r}
+library(tidyverse)
+library(janitor)
+library(rio)
+library(here)
+library(lubridate)
+```
+
+## 1.Total Long COVID deaths by state and county
+
+"We relied on words and phrases identified by the CDC’s National Center for Health Statistics to find cases where Long COVID caused or contributed to the death, including terms like “post COVID syndrome,” “post acute” COVID and “Long COVID.” In 2020, 2021, and parts of 2022, we found 62 deaths associated with Long COVID in Minnesota, nine in Santa Clara County and one in Los Angeles. In New Mexico, from 2020 through 2021, we identified 13 deaths."
+
+```{r}
+mn_long_covid_deaths <- read_csv(here("data", "processed", "minnesota_long_covid_deaths.csv"))
+chicago_long_covid_deaths <- read_csv(here("data", "processed", "chicago_long_covid_deaths.csv"))
+los_angeles_long_covid_deaths <- read_csv(here("data", "processed", "los_angeles_long_covid_deaths.csv"))
+new_mexico_long_covid_deaths <- read_csv(here("data", "processed", "new_mexico_long_covid_deaths.csv"))
+san_diego_long_covid_deaths <- read_csv(here("data", "processed", "san_diego_long_covid_deaths.csv"))
+santa_clara_long_covid_deaths <- read_csv(here("data", "processed", "santa_clara_long_covid_deaths.csv"))
+```
+
+## 2. Minnesota deaths by year 
+
+"Of the 62 deaths associated with Long COVID in Minnesota, more than half happened in 2022, a sharp increase in Long COVID deaths since the beginning of the pandemic that is also highlighted in the CDC study."
+
+```{r}
+# 34 of 62 deaths were in 2022
+mn_long_covid_deaths %>% 
+  filter(death_date >= "2022-01-01")
+
+```
+## 3. Underlying cause of death in Minnesota 
+"Long COVID was the underlying, or chief cause of death, in about a third of all deaths. Symptoms from the virus had lingered for weeks to months in these patients. They also had other significant comorbidities, including pneumonia, diabetes, congestive heart failure, Alzheimer disease, hypertension, dementia, chronic kidney disease, among others."
+
+```{r}
+# No matter how many lines are filled on a death certificate, the last line is underlying. 
+# This code checks the last line of the death certificate, working backwards each line if that line is blank.
+mn_underlying <- mn_long_covid_deaths %>% 
+  filter(
+    if_any(all_of(c("cause_of_death_line_d")),~grepl(".*chronic.covid.*|.*long.cov.*|.*long.haul.cov.*|.*long.hauler.cov.*|.*post.acute.sequelae.*cov.*|.*post.acute.sequelae.*sars.*|.*post.cov.*|.*pasc.*", ignore.case=TRUE, .)) |
+      is.na(cause_of_death_line_d) & if_any(all_of(c("cause_of_death_line_c")),~grepl(".*chronic.covid.*|.*long.cov.*|.*long.haul.cov.*|.*long.hauler.cov.*|.*post.acute.sequelae.*cov.*|.*post.acute.sequelae.*sars.*|.*post.cov.*|.*pasc.*", ignore.case=TRUE, .)) |
+      is.na(cause_of_death_line_c) & if_any(all_of(c("cause_of_death_line_b")),~grepl(".*chronic.covid.*|.*long.cov.*|.*long.haul.cov.*|.*long.hauler.cov.*|.*post.acute.sequelae.*cov.*|.*post.acute.sequelae.*sars.*|.*post.cov.*|.*pasc.*", ignore.case=TRUE, .)) |
+      is.na(cause_of_death_line_b) & if_any(all_of(c("cause_of_death_line_a")),~grepl(".*chronic.covid.*|.*long.cov.*|.*long.haul.cov.*|.*long.hauler.cov.*|.*post.acute.sequelae.*cov.*|.*post.acute.sequelae.*sars.*|.*post.cov.*|.*pasc.*", ignore.case=TRUE, .)))
+
+mn_underlying_2022 <- mn_underlying %>% 
+  filter(death_date >= "2022-01-01")
+
+mn_all_2022 <- mn_long_covid_deaths %>% 
+  filter(death_date >= "2022-01-01")
+
+```
+## 4. Minnesota garbage codes 
+"In several cases, Long COVID was listed with other, more vague contributing causes like “natural causes” or “failure to thrive”."
+```{r}
+mn_long_covid_deaths %>% 
+  filter(if_any(all_of(c("cause_of_death_line_a", "cause_of_death_line_b", "cause_of_death_line_c", "cause_of_death_line_d", "other_contributing_factors")),~grepl(".*natural.causes.*|.*failure.*thrive.*", ignore.case=TRUE, .)))
+
+
+```
+## 5. Minnesotans' ages 
+Most of the deaths were among patients over 75, though a handful were in their 30s and 40s. 
+```{r}
+# 44 of 62 patients were over 75
+mn_long_covid_deaths %>% 
+  filter(decd_age_in_years >= 75)
+
+
+```
+## 6. Minnesotans' college degrees
+"Many of the Minnesotans lacked a college degree and worked in blue-collar jobs, including as a farmer, carpenter and bus driver. Reflecting Minnesota’s demographics, almost all cases were white."
+
+```{r}
+# 39 of 62 don't have a college degree 
+mn_long_covid_deaths %>% 
+  filter(!decedent_education %in% c("ASSOCIATE DEGREE (E.G., AA, AS)", "BACHELOR'S DEGREE (E.G., BA, AB, BS)", "MASTER'S DEGREE (E.G., MA, MS, MENG, MED, MSW, MBA)", "DOCTORATE DEGREE (E.G., PHD, EDD) OR PROFESSIONAL DEGREE (E.G., MD, DDS, DVM, LLB, JD)"))
+
+```
+## 7. Minnesotans' occupations 
+"Many of the Minnesotans lacked a college degree and worked in blue-collar jobs, including as a farmer, carpenter and bus driver. Reflecting Minnesota’s demographics, almost all cases were white."
+```{r}
+# Eyeballing these occupations, it looks like at least two-thirds are working class jobs 
+mn_long_covid_deaths %>% 
+  distinct(decedent_occupation)
+
+```
+## 8. Minnesotans' Race
+"... almost all cases were white."
+```{r}
+# All are white except for four 
+mn_long_covid_deaths %>% 
+  distinct(subject_white)
+
+```
+## 9. New Mexico contributing and underlying causes 
+"Unlike the deaths in Minnesota associated with Long COVID, many of the deaths among New Mexcians did not indicate that the patient had significant comorbidities, but instead connected the death directly to pneumonia or respiratory failure related to COVID-19."
+```{r}
+# There is no quantitative way to measure this, this finding is more a clear, but general impression
+new_mexico_long_covid_deaths %>% 
+  select(tex_tline_a, tex_tline_b, tex_tline_c, tex_tline_d, text_part2)
+```
+## 10. Underlying cause of death in New Mexico 
+"Long COVID was documented as the underlying cause of death in five of 13 New Mexican patients, all of whom died in 2021.The age of these patients spanned from 68 to 89, and most were frontline or essential workers with occupations like farm hand, security guard or housekeeper."
+```{r}
+new_mexico_underlying <- new_mexico_long_covid_deaths %>% 
+  filter(if_any(all_of(c("tex_tline_d")),~grepl(".*chronic.covid.*|.*long.cov.*|.*long.haul.cov.*|.*long.hauler.cov.*|.*post.acute.sequelae.*cov.*|.*post.acute.sequelae.*sars.*|.*post.cov.*|.*pasc.*", ignore.case=TRUE, .)) |
+           is.na(tex_tline_d) &
+        if_any(all_of(c("tex_tline_c")),~grepl(".*chronic.covid.*|.*long.cov.*|.*long.haul.cov.*|.*long.hauler.cov.*|.*post.acute.sequelae.*cov.*|.*post.acute.sequelae.*sars.*|.*post.cov.*|.*pasc.*", ignore.case=TRUE, .)) |
+        is.na(tex_tline_c) &
+        if_any(all_of(c("tex_tline_b")),~grepl(".*chronic.covid.*|.*long.cov.*|.*long.haul.cov.*|.*long.hauler.cov.*|.*post.acute.sequelae.*cov.*|.*post.acute.sequelae.*sars.*|.*post.cov.*|.*pasc.*", ignore.case=TRUE, .)) |
+        is.na(tex_tline_b) &
+        if_any(all_of(c("tex_tline_a")),~grepl(".*chronic.covid.*|.*long.cov.*|.*long.haul.cov.*|.*long.hauler.cov.*|.*post.acute.sequelae.*cov.*|.*post.acute.sequelae.*sars.*|.*post.cov.*|.*pasc.*", ignore.case=TRUE, .)))
+           
+        
+```
+## 11. New Mexicans' ages 
+"About one-third of patients were under 60 years old..."
+```{r}
+# 5 of 13 
+new_mexico_long_covid_deaths %>% 
+  filter(age_yr < 60)
+
+
+```
+## 12. New Mexican's race
+"... three-fourths were Hispanic or Indigenous Americans, reflecting both the demographics of New Mexico and the toll of COVID-19 on communities of color."
+```{r}
+new_mexico_long_covid_deaths %>% 
+  filter(!race == "White")
+# 10 of 13
+```

@@ -1,0 +1,14 @@
+res_st,death_yr,death_mo,death_da,age_yr,t_sex,race,place_of_death,occupation,resi_zip,tex_tline_a,tex_tline_b,tex_tline_c,tex_tline_d,text_part2
+NM,2020,11,30,25,Male,AIAN,Hospital-Emergency Room/Outpatient,Dental Assistant,87313,cardiac arrest,COVID-19,,,Line a presumed secondary to post COVID-19
+NM,2020,10,30,72,Male,Hispanic,Hospital-Inpatient,PHYSICIAN,87002,HEMORRHAGIC SHOCK,DUODENAL ULCER HEMORRHAGE,,,CHRONIC RESPIRATORY FAILURE STATUS POST COVID-19 PNEUMONIA
+NM,2020,10,20,49,Male,Hispanic,Hospital-Inpatient,JUNIOR CHEMIST,88008,ACUTE RESPIRATORY FAILURE WITH HYPOXIA AND HYPERCAPNIA STATUS POST COVID-19 INFECTION,COVID-19 PNEUMONIA,TACHYPNEA AND RESPIRATORY DISTRESS DUE TO COVID-19,END STAGE RENAL DISEASE,"HYPOTENSION, CRITICAL ILLNESS MYOPATHY, COAGULASE NEGATIVE  STAPHYLOCOCCUS TRACHEOBRONCHITIS"
+NM,2021,2,7,86,Male,Hispanic,Hospital-Inpatient,Farm Hand,87114,Post covid inflammatory lung disease,,,,"deep vein thrombosis, diastolic congestive heart failure"
+NM,2021,2,15,83,Female,Hispanic,Nursing Home/Long Term Care Facility,Housekeeper,87121,Anorexia,post covid syndrome,Covid pneumonia,,
+NM,2021,3,21,89,Male,White,Hospital-Inpatient,Security Guard,88001,Cardio Pulmonary Failure,Related to Post COVID Sequel,,,
+NM,2021,6,14,68,Female,White,Hospital-Inpatient,Counselor,88210,acute hypoxemic respiratory failure,pneumonia,,,"post covid lung fibrosis, hypovolemic shock, spontaneous right thigh hematoma , atrial fibrillation with rapid ventricul"
+NM,2021,5,18,71,Female,AIAN,Hospital-Inpatient,Homemaker,87026,Cardiac and respiratory arrest,Severe sepsis/shock,C difficile colitis,"complications from post-COVID syndrome, including stroke and temporal arteritis","complications from post-COVID syndrome, including large right MCA stroke and temporal arteritis"
+NM,2021,12,11,30,Male,White,Hospital-Inpatient,Business Owner,88011,Cardiac Arrest,Acute on Chronic Hypoxic Respiratory Failure,Post COVID-19 Syndrome,Spontanous Left Pneumothorax,
+NM,2021,12,26,50,Male,AIAN,Hospital-Inpatient,Heavy Equipment Operator,87364,Acute Hypoxemic hypercapneic Respiratory Failure,post covid interstitial lung disease,severe COVID-19,,
+NM,2021,12,12,55,Male,AIAN,Other (specify),Oil Field,87364,Testicular carcinoma,,,,Recent history of sepsis. Post COVID-19 syndrome.
+NM,2021,10,20,71,Female,Hispanic,Hospital-Inpatient,HOUSE KEEPER,88203,OBSTRUCTIVE SHOCK,ACUTE RESPIRATORY FAILURE,ACUTE PULMONARY EMBOLISM,POST-COVID-19 SYNDROME,
+NM,2021,6,10,68,Female,Hispanic,Hospital-Inpatient,UNKNOWN,88101,ACUTE HYPOXIC RESPIRATORY FAILURE,SEPTIC SHOCK,POST COVID 19 INFECTION,,

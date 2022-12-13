@@ -1,0 +1,10 @@
+manner_of_death,age,race,gender,death_date,death_city,death_zip,resident_city,resident_zip,incident_location,cause_of_death,other_significant_condition
+Natural,77,Hispanic,Male,3/20/22 4:13,San Jose,95128,San Jose,95122,N/A,Post COVID organizing pneumonia complicating Stage 4 B Cell lymphoma,Hyperlipidemia
+Natural,83,White,Female,7/25/22 0:00,San Jose,95135,San Jose,95135,N/A,Complications of Lung Cancer,Post COVID Infection
+Natural,75,Asian,Male,4/28/21 10:57,San Jose,95123,San Jose,95123,Own Residence,Atherosclerotic and hypertensive cardiovascular disease,Type 2 diabetes mellitus; post-acute sequelae of Covid-19
+Natural,86,White,Male,11/10/21 23:20,Gilroy,95020,Gilroy,95020,N/A,Long COVID (Post-Acute Sequelae of COVID-19 (PASC)),Protein Calorie Malnutrition; Chronic Kidney Disease Stage 3; Diabetes Mellitus Type 2; Hypertension
+Natural,64,White,Female,11/26/21 10:24,San Jose,95128,San Jose,95117,N/A,Post Acute Sequelae of COVID-19,Asthma; Chronic Obstructive Pulmonary Disease; Hypertension
+Natural,60,Hispanic,Male,2/2/22 18:38,San Jose,95128,Los Banos,93635,N/A,Acute Hypoxic Respiratory Failure due to Post COVID-19 Pneumonitis,insulin dependent diabetes mellitus; hypertension
+Natural,88,Asian,Male,7/21/22 2:52,San Jose,95128,San Jose,95112,N/A,Pleural effusion due to Chronic Obstructive Pulmonary Disease,Chronic smoker; atrial fibrillation; post COVID sequelae; diabetes mellitus type 2; asthma
+Natural,84,White,Female,4/15/22 5:30,San Jose,95116,San Jose,95116,N/A,Complications of Aspiration Pneumonia due to Dysphasia due to Complications of Dementia Unspecified,Hypertension; Congestive Heart Failure; Diabetes Mellitus Type II; Chronic Kidney Disease; POST COVID-19 Infection
+Natural,56,OtherPacificIslander,Male,7/17/22 0:54,San Jose,95124,San Jose,95120,Own Residence,Post-acute sequelae of COVID-19 infection complicating hypertensive cardiovascular disease,None
