@@ -1,9 +1,9 @@
 # Analysis of death certificates where Long COVID caused or contributed to death  
 This repository conatins death certificate data recieved in public records requests from Chicago, California’s Bay Area, Los Angeles and San Diego, New Mexico, and Minnesota, allowing us to search for words associated with Long COVID. 
 
-This analysis formed the basis of our reporting in the article the article, "[After Nationwide Review, CDC is Defining ‘Long COVID’ Deaths. We’ve Found Details About Those Who Died. Here are Some of Their Stories](https://www.muckrock.com/news/archives/2022/dec/14/long-covid-cdc-muckrock-analysis)," published Dec. 14, 2022.
+This analysis formed the basis of our reporting in the article the article, "[We Found Dozens of ‘Long COVID’ Deaths Across the U.S., as Defined by the CDC. Here are Some of Their Stories.](https://www.muckrock.com/news/archives/2022/dec/14/long-covid-cdc-muckrock-analysis)," published Dec. 14, 2022.
 
-This work is part of an ongoing project by MuckRock about to report on the federal government’s response to Long COVID. Do you have something to tell us about that? [We want to hear from Long COVID patients, caregivers, researchers and others in the community](https://www.muckrock.com/news/archives/2022/nov/02/long-covid-callout-cdc-symptoms/) as we continue to investigate government action on this condition.
+This work is part of an ongoing project by MuckRock, reporting on the U.S. government’s response to Long COVID. Do you have something to tell us about that? [We want to hear from Long COVID patients, caregivers, researchers and others in the community](https://www.muckrock.com/news/archives/2022/nov/02/long-covid-callout-cdc-symptoms/) as we continue to investigate government action on this condition.
 
 # Data 
 ## `data`
