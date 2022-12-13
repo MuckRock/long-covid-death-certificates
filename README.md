@@ -3,7 +3,7 @@ This repository conatins death certificate data recieved in public records reque
 
 This analysis formed the basis of our reporting in the article the article, "[After Nationwide Review, CDC is Defining ‘Long COVID’ Deaths. We’ve Found Details About Those Who Died. Here are Some of Their Stories](https://www.muckrock.com/news/archives/2022/dec/14/long-covid-cdc-muckrock-analysis)," published Dec. 14, 2022.
 
-This work is part of an ongoing project by MuckRock about to report on the federal government’s response to Long COVID as an ongoing public health crisis. 
+This work is part of an ongoing project by MuckRock about to report on the federal government’s response to Long COVID as an ongoing public health crisis. Do you have something to tell us about that? [We want to hear from Long COVID patients, caregivers, researchers and others in the community](https://www.muckrock.com/news/archives/2022/nov/02/long-covid-callout-cdc-symptoms/) as we continue to investigate government action on this condition.
 
 # Data 
 State and regional agencies provided the [`data`](https://github.com/DillonBergin/long-covid-deaths/tree/main/data) in this repository through public records requests. The requests for several data files can be found on MuckRock's website, filed by Derek Kravitz and Dillon Bergin, including [Cook County](https://www.muckrock.com/foi/cook-county-365/request-for-death-records-132745/), [Los Angeles](https://www.muckrock.com/foi/los-angeles-county-358/cpra-for-case-detail-records-132743/), [San Diego](https://www.muckrock.com/foi/san-diego-county-55/cpra-for-case-data-132744/) and [New Mexico](https://www.muckrock.com/foi/new-mexico-227/medical-examiner-data-new-mexico-134303/). 
